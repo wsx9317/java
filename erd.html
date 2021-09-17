@@ -1,0 +1,336 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>리포트</title>
+    <style type="text/css">
+        .entity{
+            border: solid 1px #7E2828;
+            margin-bottom: 20px;
+        }
+        .header{
+            background-color: #7E2828;
+            color: white;
+        }
+        .column-header{
+            background-color: #E8E8E8;
+        }
+        td{
+            padding-left: 5px;
+            padding-right: 5px;
+            border-bottom: 1px solid black;
+        }
+        tr:last-child td{
+          border-bottom: 0px;
+        }
+        tr td:nth-child(5){
+          text-align: center;
+        }
+    </style>
+</head>
+<body>
+<h2>손봉기 데이터 베이스 명세서</h2>
+<table class="entity" cellpadding="0" cellspacing="0">
+    <tr>
+        <td colspan="6" class="header">게시판 (board)</td>
+    </tr>
+    <tr class="column-header">
+        <td>논리명</td>
+        <td>물리명</td>
+        <td>도메인</td>
+        <td>데이터 타입</td>
+        <td>Not Null</td>
+        <td>비고</td>
+    </tr>
+    <tr>
+        <td>게시판 번호(PK)</td>
+        <td>boardNo</td>
+        <td>게시판 번호</td>
+        <td>NUMBER(2)</td>
+        <td>Y</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>게시판 이름</td>
+        <td>boardName</td>
+        <td>게피판 이름</td>
+        <td>VARCHAR2(20)</td>
+        <td>N</td>
+        <td>&nbsp;</td>
+    </tr>
+</table>
+<table class="entity" cellpadding="0" cellspacing="0">
+    <tr>
+        <td colspan="6" class="header">멤버정보 (memberInfor)</td>
+    </tr>
+    <tr class="column-header">
+        <td>논리명</td>
+        <td>물리명</td>
+        <td>도메인</td>
+        <td>데이터 타입</td>
+        <td>Not Null</td>
+        <td>비고</td>
+    </tr>
+    <tr>
+        <td>회원 번호(진료 번호)(PFK)</td>
+        <td>memberNo</td>
+        <td>회원 번호(진료 번호)</td>
+        <td>NUMBER(3)</td>
+        <td>Y</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>성별</td>
+        <td>sex</td>
+        <td>성별</td>
+        <td>NUMBER(1)</td>
+        <td>N</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>주소</td>
+        <td>address</td>
+        <td>주소</td>
+        <td>VARCHAR2(255)</td>
+        <td>N</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>전화번호</td>
+        <td>phone</td>
+        <td>전화번호</td>
+        <td>VARCHAR2(30)</td>
+        <td>N</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>이메일</td>
+        <td>email</td>
+        <td>이메일</td>
+        <td>VARCHAR2(40)</td>
+        <td>N</td>
+        <td>&nbsp;</td>
+    </tr>
+</table>
+<table class="entity" cellpadding="0" cellspacing="0">
+    <tr>
+        <td colspan="6" class="header">멤버 (member)</td>
+    </tr>
+    <tr class="column-header">
+        <td>논리명</td>
+        <td>물리명</td>
+        <td>도메인</td>
+        <td>데이터 타입</td>
+        <td>Not Null</td>
+        <td>비고</td>
+    </tr>
+    <tr>
+        <td>회원 번호(진료 번호)(PK)</td>
+        <td>memberNo</td>
+        <td>회원 번호(진료 번호)</td>
+        <td>NUMBER(3)</td>
+        <td>Y</td>
+        <td>시퀀스</td>
+    </tr>
+    <tr>
+        <td>이름</td>
+        <td>name</td>
+        <td>이름</td>
+        <td>VARCHAR2(5)</td>
+        <td>N</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>생년월일</td>
+        <td>birthday</td>
+        <td>생년월일</td>
+        <td>NUMBER(8)</td>
+        <td>N</td>
+        <td>&nbsp;</td>
+    </tr>
+</table>
+<table class="entity" cellpadding="0" cellspacing="0">
+    <tr>
+        <td colspan="6" class="header">예약  (reserve)</td>
+    </tr>
+    <tr class="column-header">
+        <td>논리명</td>
+        <td>물리명</td>
+        <td>도메인</td>
+        <td>데이터 타입</td>
+        <td>Not Null</td>
+        <td>비고</td>
+    </tr>
+    <tr>
+        <td>예약 번호(PK)</td>
+        <td>reserveNo</td>
+        <td>예약번호</td>
+        <td>NUMBER(3)</td>
+        <td>Y</td>
+        <td>시퀀스</td>
+    </tr>
+    <tr>
+        <td>게시판 번호(FK)</td>
+        <td>boardNo</td>
+        <td>게시판 번호</td>
+        <td>NUMBER(2)</td>
+        <td>N</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>회원 번호(진료 번호)(FK)</td>
+        <td>memberNo</td>
+        <td>회원 번호(진료 번호)</td>
+        <td>NUMBER(3)</td>
+        <td>N</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>예약 제목</td>
+        <td>title</td>
+        <td>예약 제목</td>
+        <td>VARCHAR(30)</td>
+        <td>N</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>진료과 번호(FK)</td>
+        <td>bunyaNo</td>
+        <td>진료과 번호</td>
+        <td>NUMBER(2)</td>
+        <td>N</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>의료진 번호(FK)</td>
+        <td>medicalNo</td>
+        <td>의료진 번호</td>
+        <td>NUMBER(2)</td>
+        <td>N</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>예약 비밀번호</td>
+        <td>reservePass</td>
+        <td>예약 비밀번호</td>
+        <td>VARCHAR(10)</td>
+        <td>N</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>증상</td>
+        <td>content</td>
+        <td>증상</td>
+        <td>VARCHAR2(100)</td>
+        <td>N</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>게시판 작성날짜</td>
+        <td>inDate</td>
+        <td>작성날짜</td>
+        <td>DATE</td>
+        <td>N</td>
+        <td>&nbsp;</td>
+    </tr>
+</table>
+<table class="entity" cellpadding="0" cellspacing="0">
+    <tr>
+        <td colspan="6" class="header">진료과 (bunya)</td>
+    </tr>
+    <tr class="column-header">
+        <td>논리명</td>
+        <td>물리명</td>
+        <td>도메인</td>
+        <td>데이터 타입</td>
+        <td>Not Null</td>
+        <td>비고</td>
+    </tr>
+    <tr>
+        <td>진료과 번호(PK)</td>
+        <td>bunyaNo</td>
+        <td>진료과 번호</td>
+        <td>NUMBER(2)</td>
+        <td>Y</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>진료과 이름</td>
+        <td>bunyaName</td>
+        <td>진료과 이름</td>
+        <td>VARCHAR(15)</td>
+        <td>N</td>
+        <td>&nbsp;</td>
+    </tr>
+</table>
+<table class="entity" cellpadding="0" cellspacing="0">
+    <tr>
+        <td colspan="6" class="header">의료진 정보 (medical)</td>
+    </tr>
+    <tr class="column-header">
+        <td>논리명</td>
+        <td>물리명</td>
+        <td>도메인</td>
+        <td>데이터 타입</td>
+        <td>Not Null</td>
+        <td>비고</td>
+    </tr>
+    <tr>
+        <td>의료진 번호(PK)</td>
+        <td>medicalNo</td>
+        <td>의료진 번호</td>
+        <td>NUMBER(2)</td>
+        <td>Y</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>의료진 이름</td>
+        <td>medicalName</td>
+        <td>의료진 이름</td>
+        <td>VARCHAR2(5)</td>
+        <td>N</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>진료과 번호(FK)</td>
+        <td>bunyaNo</td>
+        <td>진료과 번호</td>
+        <td>NUMBER(2)</td>
+        <td>N</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>아이디</td>
+        <td>id</td>
+        <td>아이디</td>
+        <td>VARCHAR(15)</td>
+        <td>N</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>비밀번호</td>
+        <td>pass</td>
+        <td>비밀번호</td>
+        <td>VARCHAR2(15)</td>
+        <td>N</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>비밀번호 확인</td>
+        <td>rePass</td>
+        <td>비밀번호 확인</td>
+        <td>VARCHAR2(15)</td>
+        <td>N</td>
+        <td>&nbsp;</td>
+    </tr>
+    <tr>
+        <td>의료진 사진</td>
+        <td>medicalPic</td>
+        <td>의료진 사진</td>
+        <td>BLOB</td>
+        <td>N</td>
+        <td>&nbsp;</td>
+    </tr>
+</table>
+</body>
+</html>
